@@ -54,7 +54,6 @@ jobs:
           tags: |
             type=raw,value=${{ inputs.Version }}
             type=raw,value=latest
-            type=sha
 
       - name: Download Release
         run: |
