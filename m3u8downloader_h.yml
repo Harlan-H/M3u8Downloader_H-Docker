@@ -3,13 +3,15 @@ services:
     image: harlanx/m3u8downloader_h:latest
     container_name: m3u8downloader_h
     restart: unless-stopped
-    environment:
-         - TZ=Asia/Shanghai
+    #environment:
+         # 启动 VNC 服务的环境变量
+         #- VNC_PASSWORD=123456
 
     ports:
         - "5800:5800"    # Web界面端口
-        - "5900:5900"    # VNC端口
+        #- "5900:5900"    # VNC端口
         - "65432:65432"    # reset api端口
+
     volumes:
         -  ./m3u8downloader_h/Caches:/app/Caches 
         -  ./m3u8downloader_h/download:/app/download 

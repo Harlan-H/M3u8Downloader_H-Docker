@@ -1,10 +1,9 @@
 # M3u8Downloader_H-Docker
 ### 简介
  - 此项目会随着m3u8downloader_h的升级同步升级
+
 ### 遇到的问题
- 1. 程序的设置可能无法映射,因为程序在创建的时候是没有那个设置文件的 等待主程序升级在说这个比较简单
- 2. 现在镜像功能其实完备的唯一的就是右键菜单无法响应 可能跟镜像太过于精简有关系
- 
+ - 设置的配置文件无法映射 等待程序更新
 
 ### docker命令行设置：
 
@@ -41,3 +40,25 @@
 6. 删除镜像
 
        docker image rm harlanx/m3u8downloader_h:latest
+
+
+### docker compose操作
+1. 项目目录中m3udownloader_h.yml就是
+
+2. 启动
+
+       docker compose -f m3udownloader_h.yml up -d
+
+
+3. 停止
+
+       docker compose -f m3udownloader_h.yml stop
+
+4. 重启
+
+       docker compose -f m3udownloader_h.yml restart
+
+5. 删除
+
+       docker compose -f m3udownloader_h.yml down
+
