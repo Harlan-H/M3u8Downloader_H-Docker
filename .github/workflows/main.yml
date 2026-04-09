@@ -55,10 +55,17 @@ jobs:
             type=raw,value=${{ inputs.Version }}
             type=raw,value=latest
 
+      - name: Extract base version
+        id: version
+        run: |
+          FULL_VERSION="${{ inputs.Version }}"
+          BASE_VERSION=$(echo "$FULL_VERSION" | cut -d- -f1)
+          echo "BASE_VERSION=$BASE_VERSION" >> $GITHUB_ENV
+
       - name: Download Release
         run: |
           mkdir -p app
-          curl -L -o app.zip https://github.com/Harlan-H/M3u8Downloader_H/releases/download/${{  inputs.Version }}/M3u8Downloader_H-linux-x64.zip
+          curl -L -o app.zip https://github.com/Harlan-H/M3u8Downloader_H/releases/download/${BASE_VERSION}/M3u8Downloader_H-linux-x64.zip
 
       - name: Unzip
         run: |
