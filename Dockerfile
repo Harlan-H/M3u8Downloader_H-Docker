@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:debian-11-v4
+FROM jlesage/baseimage-gui:debian-12-v4
 
 ENV LIBGL_ALWAYS_SOFTWARE=1 \
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     fontconfig \ 
     fonts-noto \
+    ca-certificates \
     && fc-cache -fv \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

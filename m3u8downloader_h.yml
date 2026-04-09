@@ -1,0 +1,23 @@
+services:
+  m3u8downloader_h:
+    image: harlanx/m3u8downloader_h:latest
+    container_name: m3u8downloader_h
+    restart: unless-stopped
+    environment:
+         - TZ=Asia/Shanghai
+
+    ports:
+        - "5800:5800"    # Web界面端口
+        - "5900:5900"    # VNC端口
+        - "65432:65432"    # reset api端口
+    volumes:
+        -  ./m3u8downloader_h/Caches:/app/Caches 
+        -  ./m3u8downloader_h/download:/app/download 
+    
+    devices:
+        # Intel Quick Sync Video (QSV) 硬件加速
+        - /dev/dri:/dev/dri
+
+        # 如果是双GPU系统，可能需要指定特定的设备节点，例如：
+        #- /dev/dri/card1:/dev/dri/card1
+        #- /dev/dri/renderD129:/dev/dri/renderD129
