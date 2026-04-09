@@ -4,7 +4,7 @@ ENV LIBGL_ALWAYS_SOFTWARE=1 \
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 RUN set-cont-env APP_NAME "M3u8Downloader_H"
-RUN install_app_icon.sh https://github.com/Harlan-H/M3u8Downloader_H-Docker/icon/logo.png
+RUN install_app_icon.sh https://github.com/Harlan-H/M3u8Downloader_H-Docker/raw/master/Icon/logo.png
 
 RUN apt-get update && apt-get install -y \
     libx11-6 \
