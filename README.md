@@ -23,7 +23,6 @@
            -p 65432:65432 \
            -v /缓存目录位置:/app/Caches \
            -v /下载位置:/app/download \
-           -v /配置文件:/app/Settings.dat \
            --restart unless-stopped \
            harlanx/m3u8downloader_h:latest
 
