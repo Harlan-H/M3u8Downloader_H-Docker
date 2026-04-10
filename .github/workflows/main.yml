@@ -49,7 +49,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ghcr.io/${{ github.repository_owner }}/M3u8Downloader_H
+            ghcr.io/${{ github.repository_owner }}/m3u8downloader_h
             docker.io/${{ secrets.DOCKERHUB_USERNAME }}/m3u8downloader_h
           tags: |
             type=raw,value=${{ inputs.Version }}
@@ -77,7 +77,7 @@ jobs:
 
       # 🚀 构建并推送
       - name: Build & Push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
