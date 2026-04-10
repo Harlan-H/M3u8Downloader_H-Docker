@@ -15,7 +15,7 @@
        - mkdir Caches
        - mkdir Config
 
-### Reset Api接口
+### Rest Api接口
  - 在传入接口时 savepath设置最好用./Downloads 如下
  - 如果你能自己解决权限问题,也可以自行修改此参数
  ```bash
