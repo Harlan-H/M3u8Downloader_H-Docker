@@ -2,9 +2,6 @@
 ### 简介
  - 此项目会随着m3u8downloader_h的升级同步升级
 
-### 遇到的问题
- - 设置的配置文件无法映射 等待程序更新
-
 ### 注意事项
 - 在启动镜像之前，先给用到的目录创建一下，如果是自动创建的目录归属一般都是root，那程序在下载的时候就会遇到各种各样的权限问题,因为镜像默认权限用户id号是1000,所以你最好使用你本机id为1000的那个账号创建目录，这个方法是最简单的
 - 如果你的用户id是其它也可以通过设置环境变量来指定USER_ID/GROUP_ID
@@ -12,6 +9,28 @@
 ### 复制问题
  - 正常情况是会响应复制的
  - 也可以通过在页面左边3个点点击后，在Clipboard下面的框里先复制内容进去,然后在程序需要的位置粘贴即可。
+
+### 启动前的步骤
+       - mkdir Downloads
+       - mkdir Caches
+       - mkdir Config
+
+### Reset Api接口
+ - 在传入接口时 savepath设置最好用./Downloads 如下
+ - 如果你能自己解决权限问题,也可以自行修改此参数
+ ```bash
+ curl -X POST "http://192.168.123.3:65432/downloadbyurl" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://www.dfaond.com/index.m3u8",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36",
+      "accept-encoding": "gzip, deflate, br",
+      "accept-language": "zh-CN,zh;q=0.9"
+    },
+    "savepath": "./Downloads"
+  }'
+ ```
 
 ### docker命令行设置：
 
@@ -29,7 +48,8 @@
            -p 5800:5800 \
            -p 65432:65432 \
            -v /缓存目录位置:/app/Caches \
-           -v /下载位置:/app/download \
+           -v /下载位置:/app/Downloads \
+           -v /配置文件:/app/Config \
            --restart unless-stopped \
            harlanx/m3u8downloader_h:latest
 

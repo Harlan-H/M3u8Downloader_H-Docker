@@ -14,7 +14,8 @@ services:
 
     volumes:
         -  ./m3u8downloader_h/Caches:/app/Caches 
-        -  ./m3u8downloader_h/download:/app/download 
+        -  ./m3u8downloader_h/Downloads:/app/Downloads 
+        -  ./m3u8downloader_h/Config:/app/Config 
     
     devices:
         # Intel Quick Sync Video (QSV) 硬件加速
