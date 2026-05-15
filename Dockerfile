@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:debian-12-v4
+FROM jlesage/baseimage-gui:debian-12-v4.11
 
 ENV LIBGL_ALWAYS_SOFTWARE=1 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 
