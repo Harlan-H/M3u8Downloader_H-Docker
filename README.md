@@ -14,6 +14,7 @@
        - mkdir Downloads
        - mkdir Caches
        - mkdir Config
+       - mkdir Plugins
 
 ### Rest Api接口
  - 在传入接口时 savepath设置最好用./Downloads 如下
@@ -50,6 +51,7 @@
            -v /缓存目录位置:/app/Caches \
            -v /下载位置:/app/Downloads \
            -v /配置文件:/app/Config \
+           -v /插件目录:/app/Plugins \
            --restart unless-stopped \
            harlanx/m3u8downloader_h:latest
 
