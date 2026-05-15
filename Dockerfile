@@ -8,7 +8,7 @@ ENV LC_ALL=C.UTF-8
 
 
 RUN set-cont-env APP_NAME "M3u8Downloader_H"
-RUN install_app_icon.sh https://github.com/Harlan-H/M3u8Downloader_H-Docker/raw/master/Icon/logo.png
+RUN install_app_icon.sh "https://raw.githubusercontent.com/Harlan-H/M3u8Downloader_H-Docker/master/Icon/logo.png"
 
 RUN apt-get update && apt-get install -y \
     libx11-6 \
